@@ -2,23 +2,23 @@
 #
 # A program to analyze the text of Alice in Wonderland and do
 # interesting things with the data.
+
+from string import punctuation
   
 with open('alice_in_wonderland.txt') as alice_file:
     alice_text = alice_file.read()
+with open('shakespeare.txt') as shakespeare_file:
+    shakespeare_text = shakespeare_file.read()
     
 def GetWords(text):
-    newtext = str(text).lower()
-    words = []
-    word = ''
-    for character in newtext + '!':
-      if character.isalpha():
-        word = word + character
-      else:
-        words.append(word)
-        word=''
-    words = [s for s in words if s]
-    return words
-
+    newtext = str(text).lower().replace('--', ' ').split()
+    stext = []
+    for word in newtext:
+        word = (word.strip(punctuation))
+        if word:
+            stext.append(word)
+    return stext
+        
 words = GetWords(alice_text)
 
 def GetUniqueWords(text):
@@ -84,7 +84,7 @@ def main():
   with open('alice_in_wonderland.txt') as alice_file:
     alice_text = alice_file.read()
     
-  print ('Unique words:', GetUniqueWords(alice_text))
+  #print ('Unique words:', GetUniqueWords(alice_text))
   
   
   
