@@ -6,7 +6,6 @@
 from string import punctuation
 from random import choice, randint
 
-
 all_words = [] 
 word_frequency = {} #{word: count}  
 second_words = {} #{word: [follower, follower]
