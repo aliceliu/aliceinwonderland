@@ -30,23 +30,26 @@ class MainHandler(webapp2.RequestHandler):
         self.response.out.write(html)
     
     def post(self):
-        text = self.request.POST.get('fname').file.read()
-        PrepareData(text)
-        words = GetAllWords()
-        totalwords = len(words)
-        uniquewords = GetUniqueWords()
-        my_dict = GetWordFreq()
-        mostf = Freq(my_dict, 'most')
-        leastf = Freq(my_dict, 'least')
-        generate = GenerateText(5)
-        dlength = DistributionLength().items()
+        try:
+			text = Text(self.request.POST.get('fname').file.read())
+		except:
+		    text = ''
+        newtext = text.PrepareData()
+        words = text.all_words
+        uniquewords = text.GetUniqueWords()
+        my_dict = text.GetWordFreq()
+        logging.info(my_dict)
+        mostf = text.Freq(my_dict, 'most')
+        leastf = text.Freq(my_dict, 'least')
+        generate = text.GenerateText(5)
+        dlength = text.DistributionLength().items()
       #  dulength = DistributionULength().items()
       #  dfreq = DistributionFreq().items()
-        palindrome = Palindrome()
+        palindrome = text.Palindrome()
         
         template_values={
         "text":text,
-        "totalwords":totalwords,
+        "totalwords": len(words),
         "uniquewords": len(uniquewords),
         "mostf":mostf,
         "leastf":leastf,
