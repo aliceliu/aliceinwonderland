@@ -20,8 +20,6 @@ libraries:
   version: "2.5.1"
 - name: jinja2
   version: latest
-#- name: pyx
-  #version: latest
   
 builtins:
 - remote_api: on

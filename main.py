@@ -31,9 +31,9 @@ class MainHandler(webapp2.RequestHandler):
     
     def post(self):
         try:
-			text = Text(self.request.POST.get('fname').file.read())
-		except:
-		    text = ''
+            text = Text(self.request.POST.get('fname').file.read())
+        except:
+            text = ''
         newtext = text.PrepareData()
         words = text.all_words
         uniquewords = text.GetUniqueWords()

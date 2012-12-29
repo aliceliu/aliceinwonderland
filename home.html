@@ -1,7 +1,6 @@
 <html>
     <head>
       <title>Text Analyzer</title>
-      <link rel="stylesheet" href="/static/home.css">
       {% if dlength %}
       <script type="text/javascript" src="https://www.google.com/jsapi"></script>
       <script type="text/javascript">
@@ -24,18 +23,100 @@
           chart.draw(data, options);
       }
       
-      </script>
-      {% endif %}
+    </script>
+    {% endif %}
+    
+    <style>
+    #appname {
+        font-family:"Arial";
+        line-height: 31px;
+        font-size: 60px;
+        position: relative;
+        top: 60px;
+        left: 20px;
+        }
+    #rectangle1 {
+        background: #4333ff;
+        border-radius: 40px;
+        margin: 0px;
+        width: 1030px;
+        height: 158px;
+        position: relative;
+        top: 28px;
+        left: 30px;
+        }
+    #submit {
+        position: relative;
+        top: 40;
+        left: 40px;
+        height: 50px;
+        width: 1000px;
+        }
+    .btn {
+        background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );
+        background:-moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
+        background-color:#ededed;
+        -moz-border-radius:29px;
+        -webkit-border-radius:29px;
+        border-radius:29px;
+        border:1px solid #dcdcdc;
+        display:inline-block;
+        color:#777777;
+        font-family:arial;
+        font-size:15px;
+        font-weight:bold;
+        padding:6px 30px;
+        text-shadow:1px 2px 9px #ffffff;
+        }
+    #file {
+        font-size: 15px;
+        font: "Arial";
+        display:inline-block;
+        }
+    #rectangle2 {
+        background: #ffd72a;
+        margin: 0px;
+        width: 1030px;
+        height: 1150px;
+        position: relative;
+        top: 45px;
+        left: 30px;
+        }
+    table {
+        border-spacing: 0;
+        padding: 10px;
+        border-collapse: collapse;
+        }
+    
+    td, th {
+        padding: 20px;
+        border-bottom: 1px solid black;
+        border-right: 1px solid black;
+        }
+    
+    
+    
+    
+    
+    </style>
       
     </head>
     <body>
+      <div id="rectangle1">
       <h1 id="appname"> Text Analyzer! </h1>
-      <form method="POST" enctype="multipart/form-data" action="">
-        <input type="file" name="fname">
-        <div></div>
-        <input type="submit" value="Analyze!">
+      </div>
+      
+      <div id="submit">
+      <form method="POST" enctype="multipart/form-data" action="/">
+      <input type="file" name="fname" id="file"/>
+      <input type="submit" value="Analyze!" class="btn">
+        
       </form>
-      <table border="1">
+      </div>
+      
+      <div id="rectangle2">
+      <table>
         <tr>
           <td>Total Number of Words</td>
           <td>{{totalwords}}</td>
@@ -63,7 +144,8 @@
           <td>Length Frequency Graph</td>
           <td id="chart1" style="width: 900px; height: 500px;"></td>
         </tr>
-        
+      </table>
+      </div>
     </body>
 
 </html>
