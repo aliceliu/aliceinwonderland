@@ -30,10 +30,7 @@ class MainHandler(webapp2.RequestHandler):
         self.response.out.write(html)
     
     def post(self):
-        try:
-            text = Text(self.request.POST.get('fname').file.read())
-        except:
-            text = ''
+        text = Text(self.request.POST.get('fname').file.read().encode('utf-8'))
         newtext = text.PrepareData()
         words = text.all_words
         uniquewords = text.GetUniqueWords()

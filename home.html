@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
       <title>Text Analyzer</title>
@@ -25,7 +26,7 @@
       
     </script>
     {% endif %}
-    
+
     <style>
     #appname {
         font-family:"Arial";
@@ -38,16 +39,14 @@
     #rectangle1 {
         background: #4333ff;
         border-radius: 40px;
-        margin: 0px;
-        width: 1030px;
+        width: 1230px;
         height: 158px;
         position: relative;
-        top: 28px;
         left: 30px;
         }
     #submit {
         position: relative;
-        top: 40;
+        top: 35px;
         left: 40px;
         height: 50px;
         width: 1000px;
@@ -76,16 +75,13 @@
         }
     #rectangle2 {
         background: #ffd72a;
-        margin: 0px;
-        width: 1030px;
+        width: 1230px;
         height: 1150px;
         position: relative;
         top: 45px;
         left: 30px;
         }
     table {
-        border-spacing: 0;
-        padding: 10px;
         border-collapse: collapse;
         }
     
@@ -94,10 +90,6 @@
         border-bottom: 1px solid black;
         border-right: 1px solid black;
         }
-    
-    
-    
-    
     
     </style>
       
@@ -108,8 +100,8 @@
       </div>
       
       <div id="submit">
-      <form method="POST" enctype="multipart/form-data" action="/">
-      <input type="file" name="fname" id="file"/>
+      <form method="POST" enctype="multipart/form-data" action="/" id="submitForm">
+      <input type="file" name="fname" id="file" required/>
       <input type="submit" value="Analyze!" class="btn">
         
       </form>
